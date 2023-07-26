@@ -10,7 +10,6 @@ import UIKit
 class MainViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var ErrorLabel: UILabel!
     
     var presenter : MainViewPresenterProtocol!
@@ -39,6 +38,7 @@ extension MainViewController : UITableViewDataSource {
 extension MainViewController: MainViewProtocol{
     func succes() {
         tableView.reloadData()
+        self.ErrorLabel.text = ""
     }
     
     func failure(error: Error) {
